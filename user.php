@@ -1,3 +1,28 @@
+<?php 
+session_start();
+include 'connect.php';	
+
+$currentpageopened=basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+
+
+
+if(!isset( $_SESSION['logged']) && empty($_SESSION['logged']))
+{
+	header('location:index.php');
+}
+
+if(isset($_GET['LogOUT']))
+{
+	session_destroy();
+	header('location:index.php');
+}
+
+$user="select * from formdetail where email='".$_SESSION['logged']."'";
+$get=$connection->query($user);
+$row=$get->fetch_array();
+extract($row)
+
+?>
 <html>
 <head>
 <title>Form</title>
@@ -17,16 +42,7 @@
 <th>Confirm Password</th>
 <th>Operation</th>
 </tr>
-<?php
-												include'connect.php';
-											
-											$select= $connection->query("select * from formdetail where email = '$email' ");
-											$row=$select->fetch_array();
-											{ 	
-												extract($row);
-											
-												
-										  ?> 
+
 										  <tr>
 											<td><?php echo $id;?></td>
 											<td><?php echo $name;?></td>
@@ -39,7 +55,7 @@
 											<td><a style="width:50px; height:20px; " href="registration.php?id=<?php echo $id;?>" name="Edit">EDIT</a>
 											<a style="width:50px; height:20px; " href="registration.php?idd=<?php echo $id;?>" name="delete" >Delete</a> </td> 
 										  </tr>
-										    <?php } ?>
+										   
 											
 											
 <table><br><br>
