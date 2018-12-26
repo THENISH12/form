@@ -14,6 +14,24 @@
 
 
 
+	
+session_start();
+if(isset($_POST['submit']))
+{
+	$login_verify="select * from formdetail where email='".$_POST['email']."'  && password='".$_POST['password']."'";
+	$check=$connection->query($login_verify);
+	if($check->num_rows>0)
+	{   $_SESSION['logged']=$_POST['email'];
+		header('location:user.php');
+		
+	}
+	else
+	{
+		
+		header('location:index.php');
+	}
+}
+
 
 
 	?>
