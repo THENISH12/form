@@ -1,8 +1,8 @@
 <?php	 
-	 $DB_host = "localhost";
-	 $DB_user = "root";   
-	 $DB_pass = "";      
-	 $DB_name = "form";
+	 $DB_host = "173.208.229.242";
+	 $DB_user = "demo7_form";   
+	 $DB_pass = "form#12";      
+	 $DB_name = "demo7_form";
 	 
 	 
 	 $connection = new MySQLi($DB_host,$DB_user,$DB_pass,$DB_name);
