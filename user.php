@@ -59,7 +59,7 @@ extract($row)
 											
 											
 <table><br><br>
-<a href="index.php?LogOUT">Log Out</a>
+<a href="index.html?LogOUT">Log Out</a>
 </div>
 </section>
 </body>
