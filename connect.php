@@ -14,8 +14,7 @@
 
 
 
-	
-session_start();
+
 if(isset($_POST['submit']))
 {
 	$login_verify="select * from formdetail where email='".$_POST['email']."'  && password='".$_POST['password']."'";
